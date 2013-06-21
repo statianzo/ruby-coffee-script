@@ -28,7 +28,7 @@ module CoffeeScript
     end
 
     def self.context
-      @context ||= ExecJS.compile(contents)
+      ::Thread.current['CoffeeScriptContext'] ||= ExecJS.compile(contents)
     end
   end
 
